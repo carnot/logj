@@ -3,14 +3,15 @@
 <head>
 <script id="versionArea" type="text/javascript">
 //<![CDATA[
-var version = {title: "TiddlyWiki", major: 2, minor: 5, revision: 4, alpha: 1, date: new Date("Aug 18, 2009"), extensions: {}};
+var version = {title: "TiddlyWiki", major: 2, minor: 6, revision: 2, date: new Date("Jan 6, 2011"), extensions: {}};
 //]]>
 </script>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="copyright" content="
 TiddlyWiki created by Jeremy Ruston, (jeremy [at] osmosoft [dot] com)
 
-Copyright (c) UnaMesa Association 2004-2009
+Copyright (c) Jeremy Ruston 2004-2007
+Copyright (c) UnaMesa Association 2007-2011
 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
@@ -39,11 +40,13 @@ DAMAGE.
 " />
 <!--PRE-HEAD-START-->
 <!--{{{-->
-<link rel="shortcut icon" href="favicon.ico" type="images/x-icon">
-<link rel='alternate' type='application/rss+xml' title='RSS' href='index.xml'/>
+<link rel="shortcut icon" href="/recipes/sameerg_public/tiddlers/favicon.ico" />
+<link href="/bags/sameerg_public/tiddlers.atom" rel="alternate"
+	type="application/atom+xml" title="sameerg's public feed" />
+<link rel="canonical" href="http://sameerg.tiddlyspace.com/" />
 <!--}}}-->
 <!--PRE-HEAD-END-->
-<title> opensource.bt.com </title>
+<title> Console  - Life is game </title>
 <style id="styleArea" type="text/css">
 #saveTest {display:none;}
 #messageArea {display:none;}
@@ -62,12 +65,16 @@ DAMAGE.
 
 <!--PRE-BODY-END-->
 <div id="copyright">
-Welcome to TiddlyWiki created by Jeremy Ruston, Copyright &copy; 2007 UnaMesa Association
+Welcome to TiddlyWiki created by Jeremy Ruston; Copyright &copy; 2004-2007 Jeremy Ruston, Copyright &copy; 2007-2011 UnaMesa Association
 </div>
 <noscript>
+
 <div id="javascriptWarning">
-This page requires JavaScript to function properly.<br /><br />If you are using Microsoft Internet Explorer you may need to click on the yellow bar above and select 'Allow Blocked Content'. You must then click 'Yes' on the following security warning.
+This page requires JavaScript to function properly.<br /><br />
+If you do not use JavaScript you may still <a href="http://sameerg.tiddlyspace.com/recipes/sameerg_private/tiddlers">browse
+the content of this wiki</a>.
 </div>
+
 </noscript>
 <div id="saveTest"></div>
 <div id="backstageCloak"></div>
@@ -228,6 +235,7 @@ h2,h3 {border-bottom:1px solid [[ColorPalette::TertiaryLight]];}
 .editor input {border:1px solid [[ColorPalette::PrimaryMid]];}
 .editor textarea {border:1px solid [[ColorPalette::PrimaryMid]]; width:100%;}
 .editorFooter {color:[[ColorPalette::TertiaryMid]];}
+.readOnly {background:[[ColorPalette::TertiaryPale]];}
 
 #backstageArea {background:[[ColorPalette::Foreground]]; color:[[ColorPalette::TertiaryMid]];}
 #backstageArea a {background:[[ColorPalette::Foreground]]; color:[[ColorPalette::Background]]; border:none;}
@@ -511,183 +519,477 @@ Also see [[AdvancedOptions]]</pre>
 </div>
 <!--POST-SHADOWAREA-->
 <div id="storeArea">
-<div title="ADOdb" modifier="PhilWhitehouse" created="200807101437">
-<pre>From the website: &quot;~ADOdb is a database abstraction library for PHP.&quot;
+<div title="Backstage" creator="osmosoft" modifier="osmosoft" created="201106121651" modified="201106121651" tags="excludeLists excludeMissing excludeSearch" server.title="Backstage" server.page.revision="391393" server.etag="&quot;tiddlyspace/Backstage/391393;b7b3c5592959e25d39ce6ce969af57e238b7104b&quot;" server.workspace="bags/tiddlyspace" server.type="tiddlyweb" server.host="http://sameerg.tiddlyspace.com" server.recipe="sameerg_private" server.bag="tiddlyspace" server.permissions="read" server.content-type="" _hash="b6ad083e2212cc2964a85891daac144647f3b296">
+<pre>!UserUnplugged
+&lt;&lt;TiddlySpaceLogin&gt;&gt;
 
-Find out more at the official website: http://adodb.sourceforge.net/</pre>
+!SpaceUnplugged
+{{unpluggedSpaceTab{
+{{wizard{
+&lt;&lt;image unsyncedIcon width:48&gt;&gt; &lt;&lt;message messages.syncExplanation&gt;&gt;
+}}}
+{{wizard syncKey{
+{{keyHeading{
+Key}}}
+{{changedServer keyItem{&lt;&lt;message macros.sync.syncStatusList.changedServer.text&gt;&gt;}}} {{changedBoth keyItem{&lt;&lt;message macros.sync.syncStatusList.changedBoth.text&gt;&gt;}}} {{changedLocally keyItem{&lt;&lt;message macros.sync.syncStatusList.changedLocally.text&gt;&gt;}}} {{notFound keyItem{&lt;&lt;message macros.sync.syncStatusList.notFound.text&gt;&gt;}}}
+}}}
+&lt;&lt;sync&gt;&gt;
+
+!User
+{{textRight{
+&lt;&lt;TiddlySpaceLogout&gt;&gt;
+&lt;&lt;tabs txtUserTab
+	&quot;Your Identities&quot; &quot;Manage your identities&quot; [[Backstage##Identities]]
+	&quot;Your Spaces&quot; &quot;Maintain your spaces and create new ones&quot; [[Backstage##UserSpaces]]
+	&quot;Your Password&quot; &quot;Change your password&quot; [[Backstage##Password]]
+&gt;&gt;
+}}}
+
+!Menu
+{{tiddlyspaceMenu{
+&lt;&lt;message messages.memberStatus&gt;&gt; &lt;&lt;homeLink&gt;&gt;
+{{unsyncedList{&lt;&lt;message messages.syncListHeading&gt;&gt; &lt;&lt;list filter [is[unsynced]]&gt;&gt;}}}
+
+&lt;&lt;tabs txtTiddlySpaceTab
+search &quot;search across TiddlySpace&quot; Backstage##Search
+help &quot;quick access to useful space resources&quot; Backstage##Resources
+&gt;&gt;
+running TiddlySpace@glossary version &lt;&lt;message extensions.tiddlyweb.status.tiddlyspace_version&gt;&gt;
+}}}
+
+!Resources
+[[blog|@@blog]]
+[[documentation|@@docs]]
+[[featured spaces|@@featured]]
+
+!Search
+&lt;&lt;tsSearch&gt;&gt;
+
+!Space
+&lt;&lt;followSpace&gt;&gt;
+&lt;&lt;tabs txtSpaceTab
+	members Members Backstage##SpaceMembers
+	includes &quot;include spaces&quot; Backstage##SpaceInclusions
+	tiddlers &quot;tiddlers control panel&quot; Backstage##Tiddlers
+	plugins &quot;Manage installed plugins&quot; PluginManager
+	batch &quot;Perform batch operations on public/private tiddlers&quot; Backstage##BatchOps
+	options &quot;TiddlyWiki options&quot; Backstage##Options
+	tweaks &quot;Tweak the appearance and behaviour of TiddlyWiki&quot; AdvancedOptions
+	import &quot;Import tiddlers from a TiddlyWiki&quot; Backstage##FileImport
+	export &quot;Export this TiddlySpace for offline use&quot; Backstage##Export
+&gt;&gt;
+
+!FileImport
+&lt;&lt;fileImport&gt;&gt;
+
+!Export
+You can download this TiddlySpace as an offline TiddlyWiki:
+{{chunkyButton{&lt;&lt;exportSpace&gt;&gt;}}}
+
+!Identities
+You can associate your account with multiple identities. If you have an open id for example you could log into TiddlySpace with that as well as a TiddlySpace user account.
+&lt;&lt;TiddlySpaceIdentities add&gt;&gt;
+{{inlineList{
+	&lt;&lt;TiddlySpaceIdentities list&gt;&gt;
+}}}
+{{backstageClear{}}}
+
+!Login
+&lt;&lt;tabs txtLoginTab 
+&quot;TiddlySpace Username&quot; &quot;Login via a TiddlySpace username and password&quot; Backstage##UserUnplugged
+&quot;OpenID&quot; &quot;Login via an OpenID&quot;  Backstage##TabOpenID
+&quot;Register&quot; &quot;Register a TiddlySpace account&quot; Backstage##TabRegister
+&gt;&gt;
+
+!TabOpenID
+&lt;&lt;TiddlySpaceLogin openid&gt;&gt;
+
+!TabRegister
+&lt;&lt;TiddlySpaceRegister&gt;&gt;
+
+!Options
+upload a &lt;&lt;message messages.privacySetting&gt;&gt; file:
+&lt;&lt;binaryUpload&gt;&gt;
+&lt;&lt;search&gt;&gt;&lt;&lt;closeAll&gt;&gt;&lt;&lt;permaview&gt;&gt;&lt;&lt;newTiddler&gt;&gt;&lt;&lt;newJournal &quot;DD MMM YYYY&quot; &quot;journal&quot;&gt;&gt;&lt;&lt;saveChanges&gt;&gt;&lt;&lt;slider chkSliderOptionsPanel OptionsPanel &quot;options »&quot; &quot;Change TiddlyWiki advanced options&quot;&gt;&gt;
+
+!Password
+&lt;&lt;TiddlySpaceChangePassword&gt;&gt;
+
+!SpaceInclusions
+This space includes the public tiddlers from the following spaces:
+&lt;&lt;TiddlySpaceInclusion list&gt;&gt;
+&lt;&lt;TiddlySpaceInclusion passive&gt;&gt;
+
+!SpaceMembers
+The following people are members of the space ''&lt;&lt;message extensions.tiddlyspace.currentSpace.name&gt;&gt;''. Only members have access to the private tiddlers in a space.
+&lt;&lt;TiddlySpaceMembers list&gt;&gt;
+&lt;&lt;TiddlySpaceMembers add&gt;&gt;
+
+!Tiddlers
+&lt;&lt;tabs
+	txtMainTab
+	&quot;Recent&quot; &quot;Recently edited tiddlers&quot; TabTimeline
+	&quot;All&quot; &quot;All tiddlers&quot; TabAll
+	&quot;Public&quot; &quot;All public tiddlers&quot; [[TiddlySpaceTabs##Public]]
+	&quot;Private&quot; &quot;All private tiddlers&quot; [[TiddlySpaceTabs##Private]]
+	&quot;Tags&quot; &quot;All tags&quot; TabTags
+	&quot;Spaces&quot; &quot;Tiddlers grouped by space&quot; [[TiddlySpaceTabs##Spaces]]
+	&quot;Missing&quot; &quot;Missing tiddlers&quot; TabMoreMissing
+	&quot;Orphans&quot; &quot;Orphaned tiddlers&quot; TabMoreOrphans
+	&quot;Shadows&quot; &quot;Shadowed tiddlers&quot; TabMoreShadowed
+&gt;&gt;
+
+!BatchOps
+&lt;&lt;tabs
+	txtPublisherTab
+	&quot;Private&quot; &quot;Move tiddlers from private to public&quot; Backstage##BatchPrivate
+	&quot;Public&quot; &quot;Move tiddlers from public to private&quot; Backstage##BatchPublic
+&gt;&gt;
+
+!BatchPrivate
+&lt;&lt;TiddlySpacePublisher type:private&gt;&gt;
+
+!BatchPublic
+&lt;&lt;TiddlySpacePublisher type:public&gt;&gt;
+
+!UserSpaces
+&lt;&lt;TiddlySpaceSpaces add&gt;&gt;
+You are currently a member of the following spaces.
+{{inlineList{
+&lt;&lt;TiddlySpaceSpaces list&gt;&gt;
+}}}
+{{backstageClear{}}}</pre>
 </div>
-<div title="Alternative software page" modifier="PhilWhitehouse" created="200804301255">
-<pre>[&lt;img[software|images/software.jpg][http://www.buglabs.com/]]</pre>
-</div>
-<div title="Apache" modifier="PhilWhitehouse" created="200807101435">
-<pre>From the website: &quot;The Apache Software Foundation provides support for the Apache community of open-source software projects. The Apache projects are characterized by a collaborative, consensus based development process, an open and pragmatic software license, and a desire to create high quality software that leads the way in its field.&quot;
-
-Find out more at the official website: http://www.apache.org/</pre>
-</div>
-<div title="Asterisk" modifier="PhilWhitehouse" created="200807101438">
-<pre>From the website: &quot;Asterisk is the world's leading open source PBX, telephony engine, and telephony applications toolkit. Offering flexibility unheard of in the world of proprietary communications, Asterisk empowers developers and integrators to create advanced communication solutions...for free.&quot;
-
-Find out more at the official site: http://www.asterisk.org/</pre>
-</div>
-<div title="BT Open Source - Open for Business" modifier="PhilWhitehouse" created="200803261658" modified="200803261809">
-<pre>This one day session at BT Centre in London explored the risks and benefits of open source. 
-
-Phil Whitehouse, a member of [[Osmosoft]], [[blogged about the event|http://philwhitehouse.blogspot.com/2007/11/open-source-in-bt.html]]. He also [[uploaded several photos to Flickr|http://www.flickr.com/photos/philliecasablanca/sets/72157603247958469/]].
-
-Two presentations from this event were uploaded to the web; first [[Doc Searls|http://en.wikipedia.org/wiki/Doc_Searls]] (who co-wrote the [[Cluetrain Manifesto|http://www.cluetrain.com/]] and is currently the Senior Editor of [[Linux Journal|http://en.wikipedia.org/wiki/Linux_Journal]]) gave an excellent presentation on //Why All Business Will Be Based On Open Source//:
-
-&lt;html&gt;
-&lt;embed style=&quot;width:400px; height:326px;&quot; id=&quot;VideoPlayback&quot; type=&quot;application/x-shockwave-flash&quot; src=&quot;http://video.google.com/googleplayer.swf?docId=-3985011725934773842&amp;hl=en-GB&quot; flashvars=&quot;&quot;&gt; &lt;/embed&gt;
-&lt;/html&gt;
-
-Secondly, [[Jeremy Ruston]] who heads the [[Osmosoft]] team, gave a talk on //How to Start an Open Source Project//:
-
-&lt;html&gt;
-&lt;embed style=&quot;width:400px; height:326px;&quot; id=&quot;VideoPlayback&quot; type=&quot;application/x-shockwave-flash&quot; src=&quot;http://video.google.com/googleplayer.swf?docId=-1367090902421004372&amp;hl=en-GB&quot; flashvars=&quot;&quot;&gt; &lt;/embed&gt;
-&lt;/html&gt;</pre>
-</div>
-<div title="BTSkin" modifier="PaulDowney" created="200801300000" modified="200807101425" tags="systemTheme excludeSearch">
-<pre>&lt;div title=&quot;BTSkin&quot; modifier=&quot;PhilHawksworth&quot; created=&quot;200801300000&quot; tags=&quot;systemTheme excludeSearch
-&quot;&gt;
-&lt;pre&gt;
-/***
-|''Name:''|BTSkin |
-|''Description:''|The basic BT theme |
-|''Author:''|Phil Hawksworth - ph [at] osmosoft [dot] com |
-|''Version:''|0.1|
-|''Date:''|July 28th, 2008|
-|''Comments:''|Please make comments at http://groups.google.co.uk/group/TiddlyWikiDev |
-|''License:''|[[BSD License|http://www.opensource.org/licenses/bsd-license.php]] |
-|''~CoreVersion:''|2.4.0|
-|''~PageTemplate:''|##PageTemplate|
-|''~ViewTemplate:''|##ViewTemplate|
-|''~StyleSheet:''|##StyleSheet|
+<div title="BinaryTiddlersPlugin" creator="FND" modifier="FND" created="201106121651" modified="201106121651" tags="excludeLists excludeSearch systemConfig" server.title="BinaryTiddlersPlugin" server.page.revision="391361" server.etag="&quot;system/BinaryTiddlersPlugin/391361;b7b3c5592959e25d39ce6ce969af57e238b7104b&quot;" server.workspace="bags/system" server.type="tiddlyweb" server.host="http://sameerg.tiddlyspace.com" server.recipe="sameerg_private" server.bag="system" server.permissions="read" server.content-type="text/javascript" _hash="bb68b191fd5952b1143b48759d222ac59d2fbc01">
+<pre>/***
+|''Name''|BinaryTiddlersPlugin|
+|''Description''|renders base64-encoded binary tiddlers as images or links|
+|''Author''|FND|
+|''Version''|0.3.2|
+|''Status''|@@beta@@|
+|''Source''|http://svn.tiddlywiki.org/Trunk/association/plugins/BinaryTiddlersPlugin.js|
+|''License''|[[BSD|http://www.opensource.org/licenses/bsd-license.php]]|
+|''CoreVersion''|2.5|
+!Code
 ***/
+//{{{
+(function($) {
 
-!PageTemplate
-&lt;!--{{{--&gt;
-&lt;div id='messageBar'&gt;&lt;span id='messageArea'&gt;&lt;/span&gt;&lt;/div&gt;
-&lt;div class='header' refresh='content' tiddler='Header'&gt;&lt;/div&gt;
-&lt;div class='lights'&gt;&lt;/div&gt;
-&lt;div id='topMenu' refresh='content' tiddler='TopMenu'&gt;&lt;/div&gt;
-&lt;div id='pageTitleSection' class='constrain'&gt;
-	&lt;span class='siteTitle' refresh='content' tiddler='SiteTitle'&gt;&lt;/span&gt;
-	&lt;span class='siteSubtitle' refresh='content' tiddler='SiteSubtitle'&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;div id='mainMenu' refresh='content' tiddler='MainMenu'&gt;&lt;/div&gt;
-&lt;div id='displayArea'&gt;
-	&lt;div id='tiddlerDisplay'&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id='FeaturedProjects' refresh='content' tiddler='FeaturedProjects'&gt;&lt;/div&gt;
-&lt;div id='footer' refresh='content' tiddler='Footer'&gt;&lt;/div&gt;
-&lt;!--}}}--&gt;
+var ctfield = &quot;server.content-type&quot;;
 
-!ViewTemplate
-&lt;!--{{{--&gt;
-&lt;div class='toolbar' macro='toolbar closeTiddler closeOthers +editTiddler &gt; fields syncing permalink references jump'&gt;&lt;/div&gt;
-&lt;div class='title' macro='view title'&gt;&lt;/div&gt;
-&lt;div class='viewer' macro='view text wikified'&gt;&lt;/div&gt;
-&lt;div class='tagClear'&gt;&lt;/div&gt;
-&lt;!--}}}--&gt;
+var plugin = config.extensions.BinaryTiddlersPlugin = {
+	isWikiText: function(tiddler) {
+		var ctype = tiddler.fields[ctfield];
+		if(ctype) {
+			return !this.isBinary(tiddler) &amp;&amp; !this.isTextual(ctype);
+		} else {
+			return true;
+		}
+	},
+	// NB: pseudo-binaries are considered non-binary here
+	isBinary: function(tiddler) {
+		var ctype = tiddler.fields[ctfield];
+		return ctype ? !this.isTextual(ctype) : false;
+	},
+	isTextual: function(ctype) {
+		return ctype.indexOf(&quot;text/&quot;) == 0
+			|| this.endsWith(ctype, &quot;+xml&quot;)
+			|| ctype == 'application/json'
+			|| ctype == 'application/javascript';
+	},
+	endsWith: function(str, suffix) {
+		return str.length &gt;= suffix.length &amp;&amp;
+			str.substr(str.length - suffix.length) == suffix;
+	},
+        isLink: function(tiddler) {
+            return this.isBinary(tiddler) &amp;&amp; tiddler.text.indexOf(&quot;&lt;html&gt;&quot;) != -1
+        }
+};
 
+// Disable edit for linked tiddlers (for now)
+// This will be changed to a GET then PUT
+config.commands.editTiddler.isEnabled = function(tiddler) {
+    var existingTest = config.commands.editTiddler.isEnabled;
+    if (existingTest) {
+        return existingTest &amp;&amp; !plugin.isLink(tiddler);
+    } else {
+        return !plugin.isLink(tiddler);
+    }
+};
 
-!StyleSheet
-/*{{{*/
-body { color:#333;}
-a { color:#660099; text-decoration:none;}
-a:hover {color:#660099; background-color:transparent; text-decoration:underline;}
-h1,h2,h3,h4,h5,h6 {color:#444;}
-	
-/* Page Framework */
-body {background:transparent url(images/whitelights.png) no-repeat scroll -70px 35px};
-#displayArea { margin:0 2em 2em 220px;}
-div.constrain {width:80%; margin:0 auto;}
+// hijack text viewer to add special handling for binary tiddlers
+var _view = config.macros.view.views.wikified;
+config.macros.view.views.wikified = function(value, place, params, wikifier,
+		paramString, tiddler) {
+	var ctype = tiddler.fields[&quot;server.content-type&quot;];
+	if(params[0] == &quot;text&quot; &amp;&amp; ctype &amp;&amp; !tiddler.tags.contains(&quot;systemConfig&quot;) &amp;&amp; !plugin.isLink(tiddler)) {
+		var el;
+		if(plugin.isBinary(tiddler)) {
+			var uri = &quot;data:%0;base64,%1&quot;.format([ctype, tiddler.text]); // TODO: fallback for legacy browsers
+			if(ctype.indexOf(&quot;image/&quot;) == 0) {
+				el = $(&quot;&lt;img /&gt;&quot;).attr(&quot;alt&quot;, tiddler.title).attr(&quot;src&quot;, uri);
+			} else {
+				el = $(&quot;&lt;a /&gt;&quot;).attr(&quot;href&quot;, uri).text(tiddler.title);
+			}
+		} else {
+			el = $(&quot;&lt;pre /&gt;&quot;).text(tiddler.text);
+		}
+		el.appendTo(place);
+	} else {
+		_view.apply(this, arguments);
+	}
+};
 
-/* message bar */
-#messageBar {display:block; position:relative; width:100%; margin:0; background-color:transparent; height:1.6em; font-size:11px;}
-#messageArea { position:absolute; top:0; left:0; padding:0; margin:0; border-style:none; background-color:transparent;} 
-#messageArea div { margin-left:20px; padding:3px 0 0 0;}
-#messageArea div.messageToolbar { position:absolute; top:0; right:0; padding:0; margin:0;}
-#messageArea a { color:#666; text-decoration:none; }
-#messageArea a:hover { color:#777; text-decoration:none; }
-#messageArea .button { float:right; background-color:#eee; color:#444; margin:0 0 0 1em; padding:3px 6px; }
-#messageArea .button:hover {background-color:#ddd; color:#333;}
+// hijack edit macro to disable editing of binary tiddlers' body
+var _editHandler = config.macros.edit.handler;
+config.macros.edit.handler = function(place, macroName, params, wikifier,
+		paramString, tiddler) {
+	if(params[0] == &quot;text&quot; &amp;&amp; plugin.isBinary(tiddler)) {
+		return false;
+	} else {
+		_editHandler.apply(this, arguments);
+	}
+};
 
+// hijack autoLinkWikiWords to ignore binary tiddlers
+var _autoLink = Tiddler.prototype.autoLinkWikiWords;
+Tiddler.prototype.autoLinkWikiWords = function() {
+	return plugin.isWikiText(this) ? _autoLink.apply(this, arguments) : false;
+};
 
-/* Header */
-div.header {height:65px; margin:1em 2em 1em 2em; background-color:transparent; background:transparent url(images/bt_logo_static.jpg) no-repeat top left; text-align:right;}
-#pageTitleSection {display:block; width:100%; margin:0; text-align:left; border-bottom:solid 1px #ccc; padding:1em 0;  white-space:nowrap;}
-#pageTitleSection span {color:#777; padding:0; margin:0; white-space:nowrap;}
-#pageTitleSection span.siteTitle { margin-left:20px;}
-#pageTitleSection span.siteSubtitle { margin-left:0.5em;}
-
-/* search */
-.searchButton {background-color:#fff; margin-right:0.5em;}
-
-/* Top Menu*/
-#topMenu { display:block; font-size:1.3em; height:auto; background-color:#aaa; text-align:center; }
-#topMenu a { border-style:none; font-weight:normal; background-color:transparent; color:#fff; margin:0; display:inline; padding:0 1em; text-decoration:none;}
-#topMenu a:hover { border-style:none; background-color:#f90; color:#fff;}
-#topMenu a:active { border-style:none; background-color:#000; color:#fff;}
-
-/* MainMenu */
-#mainMenu { margin:2em 0 20px 20px; padding:0; text-align:left; width:200px;}
-#mainMenu a { border-style:none; font-size:0.9em; font-weight:normal; background-color:transparent; color:#000; margin:0; display:block; padding:0 1em; border-left:solid 8px #E8D7F7;}
-#mainMenu a:hover { background-color:transparent; color:#000; text-decoration:underline;}
-#mainMenu a:active { background-color:transparent; color:#000; font-weight:bold;}
-#mainMenu br { display:none;}
-
-/* Footer */
-#footer {clear:left; display:block; width:100%; margin:2em 0; text-align:right; border-top:solid 1px #ccc; padding:1em 0; }
-#footer a {margin-right:2em; color:#6B4999; text-decoration:none;}
-#footer a:hover {color:#6B4999; text-decoration:underline;}
-
-#feed-icon {float:left; margin-left: 2em;}
-
-.tiddler .title {color:#555;}
-
-div.layoutTable table {border-style:none; margin:0;}
-div.layoutTable tr {border-style:none; margin:0;}
-div.layoutTable td {border-style:none; vertical-align:top; padding:1em 2em 0 0;}
-div.layoutTable td strong {clear:left; font-weight:normal; float:left; margin-top:0.4em; color:#777;}
-
-div.productsTable table {border-style:none; margin:2em 0;}
-div.productsTable tr {border-style:none; margin:0 0 1em 0;}
-div.productsTable td {border-style:none;}
-div.productsTable td a.tiddlyLink {margin:0 5em 0 1em;}
-
-div.contributorsTable table {border-style:none; margin:2em 0;}
-div.contributorsTable tr {border-style:none; margin:0 0 1em 0;}
-div.contributorsTable td {border-style:none; vertical-align:top; padding:1em 2em;}
-
-/*}}}*/</pre>
+})(jQuery);
+//}}}</pre>
 </div>
-<div title="BusyBox" modifier="PhilWhitehouse" created="200807101434">
-<pre>From the website: &quot;~BusyBox combines tiny versions of many common UNIX utilities into a single small executable. It provides replacements for most of the utilities you usually find in GNU fileutils, shellutils, etc. The utilities in ~BusyBox generally have fewer options than their full-featured GNU cousins; however, the options that are included provide the expected functionality and behave very much like their GNU counterparts. ~BusyBox provides a fairly complete environment for any small or embedded system.&quot;
+<div title="BinaryUploadPlugin" creator="osmosoft" modifier="osmosoft" created="201106121650" modified="201106121650" tags="excludeLists excludeSearch systemConfig" server.title="BinaryUploadPlugin" server.page.revision="391346" server.etag="&quot;system-plugins_public/BinaryUploadPlugin/391346;b7b3c5592959e25d39ce6ce969af57e238b7104b&quot;" server.workspace="bags/system-plugins_public" server.type="tiddlyweb" server.host="http://sameerg.tiddlyspace.com" server.recipe="sameerg_private" server.bag="system-plugins_public" server.permissions="read" server.content-type="text/javascript" _hash="20b7504735a96e917709ae040a11f8c0ac4325ab">
+<pre>/***
+|''Name''|BinaryUploadPlugin|
+|''Version''|0.3.15|
+|''Author''|Ben Gillies and Jon Robson|
+|''Type''|plugin|
+|''Source''|http://github.com/TiddlySpace/tiddlyspace/raw/master/src/plugins/BinaryUploadPlugin.js|
+|''Description''|Upload a binary file to TiddlyWeb|
+|''CoreVersion''|2.6.1|
+|''Requires''|TiddlySpaceConfig TiddlyWebConfig|
+!Usage
+{{{
+&lt;&lt;binaryUpload bag:&lt;name&gt; edit:tags edit:title tags:&lt;default tags&gt; title:&lt;title&gt; &gt;&gt;
+}}}
+* {{{bag:&lt;name&gt;}}}: optional; if left out, the file will be saved to the current workspace
+* {{{edit:tags}}}: specifies that you want to tag the file being uploaded
+* {{{edit:title}}}: specifies that you want to set the title to something other than the filename
+* {{{tags:&lt;default tags&gt;}}}: specifies a default set of tags to apply to the file (requires {{{edit:tags}}} to be set)
+* {{{title:&lt;title&gt;}}}: predefines the title of the binary tiddler
+!Requires
+TiddlyWeb
+tiddlywebplugins.form
+!Code
+***/
+//{{{
+(function($) {
 
-Find out more on the official website: http://busybox.net/about.html</pre>
-</div>
-<div title="Capistrano" modifier="PhilWhitehouse" created="200807211058" modified="200807211146">
-<pre>From the website: &quot;Capistrano is a tool for automating tasks on one or more remote servers. It executes commands in parallel on all targeted machines, and provides a mechanism for rolling back changes across multiple machines. It is ideal for anyone doing any kind of system administration, either professionally or incidentally.&quot;
+var tiddlyspace = config.extensions.tiddlyspace;
 
-Find out more at the official website: http://www.capify.org/</pre>
-</div>
-<div title="Contributions" modifier="YourName" created="200803261719" modified="200807291348">
-<pre>BT has supported several projects and initiatives in many different ways:
-{{contributorsTable{
-|[img[UnaMesa logo|images/unamesa_logo.png][http://www.unamesa.org]]|When BT acquired [[Osmosoft]] in 2007, Osmosoft's right to the open source TiddlyWiki code base was transferred to ~UnaMesa, a not-for-profit foundation based in California, USA. BT continues to support ~UnaMesa through cash sponsorship and partial payment of ~UnaMesa staff salaries. This in turn enables ~UnaMesa to continue their work providing free software tools and web services for schools, clinics, and other community organizations. You can find out more about ~UnaMesa initiatives at http://www.unamesa.com.|
-|[img[TiddlyWiki logo|images/twlrg_logo.png][http://www.tiddlywiki.com]]|TiddlyWiki sits at the heart of BT's open source innovation team, [[Osmosoft]], which has produced several plugins and products for public use. In addition, BT has paid for several members of the ~TiddlyWiki community to meet in London, Paris, Brussels, San Francisco, Portland and Seattle to improve the organisation of the product team. The founder of the project, Jeremy Ruston, is the Head of Open Source Innovation for BT, and is the manager of Osmosoft. You can find out more about the ~TiddlyWiki product at http://www.tiddlywiki.com|
-|[img[RippleRap logo|images/ripplerap_logo.png][http://www.ripplerap.com]]|~RippleRap is a free, open source, customisable note sharing tool, based on the popular open source TiddlyWiki product and is designed so it can be configured to meet your specific needs. This product was created by [[Osmosoft]], the Open Source Innovation arm of BT. The code base, along with examples of the product used in a conference context, is available via the official ~RippleRap website at http://www.ripplerap.com.|
-|[img[FOSSBazaar logo|images/fossbazaar_logo.png][http://www.fossbazaar.org/]]|BT is a member of ~FOSSBazaar, an open source community committed to developing and sharing best practise and tools to support the effective governance of free and open source software (FOSS) in the Enterprise. The group cites its key aim to be to accelerate adoption of free and open source software in the Enterprise, and also provides general advice and guidance in support of this. You can find out more at http://www.fossbazaar.org/|
-|[img[Linux Foundation logo|images/lf_logo.png][http://www.linux-foundation.org/]]|BT Global Services entered into membership of the [[Open Source Development Labs|http://en.wikipedia.org/wiki/OSDL]] (OSDL), which merged with the Free Standards Group in 2007 to form the Linux Foundation - a nonprofit consortium dedicated to fostering the growth of Linux. You can find out more about this project at http://www.linux-foundation.org/|
-|[img[Open Health Tools logo|images/oht_logo.png][http://www.openhealthtools.org/]]|Through involvement with NHS projects, BT has supported Open Health Tools; an initiative to define, refine and implement health interoperability standards within an open source collaborative framework. The project enjoys the benefit of cutting edge developments in other IT sectors through its roots in the Eclipse Foundation, and through the involvement of companies like BT, to form a critical mass of experience, knowledge and adoption. You can find out more about this project at: http://www.openhealthtools.org/|
-|''Aloha''|Built in-house to address the needs of BT&#8217;s award-winning [[Web21C SDK project|http://web21c.bt.com/]], Aloha is an ultra lightweight yet fully scalable and resilient voice application server, with high-level call control ~APIs that abstract the complexities of SIP and ~VoIP from Java developers, and turn voice interactions into a feature that can be added to any Java application. Aloha has been built exclusively on open source components, above all the Spring Framework and the ~JAIN-SIP RI stack. It&#8217;s a battle-hardened piece of software, currently powering all ~Web21C SDK voice services, and supporting millions of call minutes per month. You can find out more at https://trac.bt.com/Aloha (you may need to accept a certificate)|
-}}}</pre>
-</div>
-<div title="Cruise Control" modifier="PhilWhitehouse" created="200807211058" modified="200807211145">
-<pre>From the website: &quot;~CruiseControl.rb is a continuous integration  tool. Its basic purpose in life is to alert members of a software project when one of them checks something into source control that breaks the build.&quot; 
+var macro = config.macros.binaryUpload = {
+	locale: {
+		titleDefaultValue: &quot;Please enter a title...&quot;,
+		tagsDefaultValue: &quot;Please enter some tags...&quot;,
+		titlePrefix: &quot;title: &quot;,
+		tagsPrefix: &quot;tags: &quot;,
+		loadSuccess: 'Tiddler %0 successfully uploaded',
+		loadError: &quot;An error occurred when uploading the tiddler %0&quot;,
+		uploadInProgress: &quot;Please wait while the file is uploaded...&quot;,
+		membersOnly: &quot;Only members can upload.&quot;
+	},
+	renderInputFields: function(container, options) {
+		var locale = macro.locale;
+		var editableFields = options.edit;
+		var includeFields = {
+			tags:  editableFields &amp;&amp; editableFields.contains(&quot;tags&quot;) ? true : false,
+			title: editableFields &amp;&amp; editableFields.contains(&quot;title&quot;) ? true : false
+		};
+		var fields = [&quot;title&quot;, &quot;tags&quot;];
+		for(var i = 0; i &lt; fields.length; i++) {
+			var fieldName = fields[i];
+			var userDefault = options[fieldName];
+			var defaultValue = userDefault ? userDefault[0] : false;
+			if(includeFields[fieldName] || defaultValue) {
+				var localeDefault = locale[&quot;%0DefaultValue&quot;.format(fieldName)];
+				var className = defaultValue ? &quot;userInput&quot; : &quot;userInput notEdited&quot;;
+				var inputEl;
+				var val = defaultValue || localeDefault || &quot;&quot;;
+				var iContainer = $(&quot;&lt;div /&gt;&quot;).addClass(&quot;binaryUpload%0&quot;.format(fieldName)).
+					appendTo(container);
+				if(defaultValue &amp;&amp; !includeFields[fieldName]) {
+					var label = locale[&quot;%0Prefix&quot;.format(fieldName)];
+					$(&quot;&lt;span /&gt;&quot;).text(label).appendTo(iContainer);
+					$(&quot;&lt;span /&gt;&quot;).addClass(&quot;disabledInput&quot;).text(val).appendTo(iContainer);
+					inputEl = $(&quot;&lt;input /&gt;&quot;).attr(&quot;type&quot;, &quot;hidden&quot;);
+				} else {
+					inputEl = $(&quot;&lt;input /&gt;&quot;).attr(&quot;type&quot;, &quot;text&quot;);
+				}
+				inputEl.attr(&quot;name&quot;, fieldName).
+					addClass(&quot;%0Edit&quot;.format(fieldName)).
+					val(val).addClass(className).appendTo(iContainer);
+			}
+		}
+	},
+	getTiddlerName: function(fileName) {
+		var fStart = fileName.lastIndexOf(&quot;\\&quot;);
+		var fStart2 = fileName.lastIndexOf(&quot;/&quot;);
+		fStart = fStart &lt; fStart2 ? fStart2 : fStart;
+		fileName = fileName.substr(fStart+1);
+		return fileName;
+	},
+	errorHandler: function(fileName) {
+		displayMessage(&quot;upload of file %0 failed&quot;.format(fileName));
+	},
+	uploadFile: function(place, baseURL, workspace, options) {
+		var pleaseWait = $(&quot;.uploadProgress&quot;, place);
+		var iframeName = options.target;
+		var form = $(&quot;form&quot;, place);
+		var existingVal = $(&quot;input[name=title]&quot;, form).val();
+		var fileName = existingVal || $('input:file', form).val();
+		if(!fileName) {
+			return false; // the user hasn't selected a file yet
+		}
+		fileName = macro.getTiddlerName(fileName);
+		$(&quot;input[name=title]&quot;, place).val(fileName);
+		// we need to go somewhere afterwards to ensure the onload event triggers
+		var redirectTo = &quot;/%0/tiddlers.txt?select=title:%1&quot;.
+			format(workspace, fileName);
+		var token = tiddlyspace ? tiddlyspace.getCSRFToken() : &quot;&quot;;
+		var action = &quot;%0?csrf_token=%1&amp;redirect=%2&quot;
+			.format(baseURL, token, redirectTo);
+		form[0].action = action; // dont use jquery to work with ie
+		form[0].target = iframeName;
+		// do not refactor following line... won't work in IE6 otherwise
+		$(place).append($('&lt;iframe name=&quot;' + iframeName + '&quot; id=&quot;' + iframeName + '&quot;/&gt;').css('display','none'));
+		macro.iFrameLoader(iframeName, function() {
+			var content = document.getElementById(iframeName).contentWindow.document.documentElement;
+			if($(content).text().indexOf(fileName) &gt; -1) {
+				options.callback(place, fileName, workspace, baseURL);
+			} else {
+				macro.errorHandler(fileName);
+			}
+			form.show(1000);
+			pleaseWait.hide(1000);
+		});
+		form.hide(1000);
+		pleaseWait.show(1000);
+		return true;
+	},
+	createUploadForm: function(place, options) {
+		var locale = macro.locale;
+		if(readOnly) {
+			$('&lt;div class=&quot;annotation&quot; /&gt;').text(locale.membersOnly).
+				appendTo(place);
+			return;
+		}
+		var bag = options.bag;
+		options.callback = options.callback ? options.callback :
+			function(place, fileName, workspace, baseurl) {
+				macro.displayFile(place, fileName, workspace);
+				displayMessage(locale.loadSuccess.format(fileName));
+				$(&quot;input[type=text]&quot;, place).val(&quot;&quot;);
+			};
+		var defaults = config.defaultCustomFields;
+		place = $(&quot;&lt;div /&gt;&quot;).addClass(&quot;container&quot;).appendTo(place)[0];
+		var workspace = bag ? &quot;bags/%0&quot;.format(bag) : config.defaultCustomFields[&quot;server.workspace&quot;];
+		var baseURL = defaults[&quot;server.host&quot;];
+		baseURL += (baseURL[baseURL.length - 1] !== &quot;/&quot;) ? &quot;/&quot; : &quot;&quot;;
+		baseURL = &quot;%0%1/tiddlers&quot;.format(baseURL, workspace);
+		//create the upload form, complete with invisible iframe
+		var iframeName = &quot;binaryUploadiframe%0&quot;.format(Math.random());
+		// do not refactor following line of code to work in IE6.
+		var form = $('&lt;form action=&quot;%0&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot; /&gt;'.
+					format(baseURL)).addClass(&quot;binaryUploadForm&quot;).
+			appendTo(place)[0];
+		macro.renderInputFields(form, options);
+		$(form).
+			append('&lt;div class=&quot;binaryUploadFile&quot;&gt;&lt;input type=&quot;file&quot; name=&quot;file&quot; /&gt;&lt;/div&gt;').
+			append('&lt;div class=&quot;binaryUploadSubmit&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Upload&quot; /&gt;&lt;/div&gt;').
+			submit(function(ev) {
+				this.target = iframeName;
+				options.target = iframeName;
+				macro.uploadFile(place, baseURL, workspace, options);
+			});
+		$('&lt;div /&gt;').addClass(&quot;uploadProgress&quot;).text(locale.uploadInProgress).hide().appendTo(place);
+		$(&quot;input[name=file]&quot;, place).change(function(ev) {
+			var target = $(ev.target);
+			var fileName = target.val();
+			var title = $(&quot;input[type=text][name=title]&quot;, place);
+			if(!title.val()) {
+				title.val(fileName);
+			}
+		});
+	},
+	handler: function(place, macroName, params, wikifier, paramString, tiddler) {
+		params = paramString.parseParams(null, null, true);
+		macro.createUploadForm(place, params[0]);
+	},
+	iFrameLoader: function(iframeName, callback) {
+		var iframe = document.getElementById(iframeName); //jQuery doesn't seem to want to do this!?
+		var locale = macro.locale;
+		$(&quot;.userInput&quot;).addClass(&quot;notEdited&quot;); // reset editing
+		var finishedLoading = function() {
+			callback();
+		};
+		var iFrameLoadHandler = function() {
+			finishedLoading.apply();
+			return;
+		};
 
-Find out more at the official website: http://selenium.openqa.org/</pre>
+		iframe.onload = iFrameLoadHandler;
+		//IE
+		completeReadyStateChanges = 0;
+		iframe.onreadystatechange = function() {
+			if (++(completeReadyStateChanges) == 3) {
+				iFrameLoadHandler();
+			}
+		};
+	},
+	displayFile: function(place, title, workspace) {
+		var adaptor = store.getTiddlers()[0].getAdaptor();
+		var context = {
+			workspace: workspace,
+			host: config.defaultCustomFields['server.host']
+		};
+		adaptor.getTiddler(title, context, null, function(context) {
+			if(context.status) {
+				store.addTiddler(context.tiddler);
+				story.displayTiddler(place, title);
+				var image = config.macros.image;
+				if(image &amp;&amp; image.refreshImage) {
+					image.refreshImage(&quot;/%0/tiddlers/%1&quot;.format(workspace, title));
+					image.refreshImage(title);
+					image.refreshImage(&quot;/%0&quot;.format(title));
+					image.refreshImage(&quot;%0/%1/tiddlers/%2&quot;.format(config.extensions.tiddlyweb.host, workspace, title));
+				}
+			} else {
+				displayMessage(macro.locale.loadError.format(title));
+			}
+		});
+	}
+};
+
+if(tiddlyspace) {
+	config.macros.binaryUploadPublic = {
+		handler: function(place, macroName, params, wikifier, paramString, tiddler) {
+			var options = paramString.parseParams(null, null, true)[0];
+			var bag = tiddlyspace.getCurrentBag(&quot;public&quot;);
+			options.bag = bag;
+			macro.createUploadForm(place, options);
+		}
+	};
+	config.messages.privacySetting = config.options.chkPrivateMode ?
+		&quot;private&quot; : &quot;public&quot;;
+	config.macros.binaryUpload.defaultWorkspace = tiddlyspace.
+		getCurrentWorkspace(config.messages.privacySetting);
+}
+
+})(jQuery);
+//}}}</pre>
+</div>
 </div>
 <div title="DefaultTiddlers" modifier="YourName" created="200803261519">
 <pre>[[Introduction]]</pre>
